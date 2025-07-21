@@ -14,14 +14,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build the Docker image for testing
-        run: docker build -t myapp-test:latest .
+      - name: Build the Docker image locally
+        run: docker build -t myapp:1 .
 
       - name: Create dummy password file for testing
         run: echo "testpassword" > postgres_password.txt
 
       - name: Run services with Docker Compose
-        run: docker compose up --build -d
+        run: docker compose up -d
 
       - name: Wait for services to be ready
         run: sleep 15
