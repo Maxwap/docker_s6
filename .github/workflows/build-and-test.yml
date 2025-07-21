@@ -18,7 +18,9 @@ jobs:
         run: docker build -t myapp:1 .
 
       - name: Create dummy password file for testing
-        run: echo "testpassword" > postgres_password.txt
+        run: |
+          mkdir -p secrets
+          echo "testpassword" > postgres_password.txt
 
       - name: Run services with Docker Compose
         run: docker compose up -d
