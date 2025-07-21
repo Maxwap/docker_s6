@@ -21,7 +21,7 @@ jobs:
         run: echo "testpassword" > postgres_password.txt
 
       - name: Run services with Docker Compose
-        run: docker-compose up --build -d
+        run: docker compose up --build -d
 
       - name: Wait for services to be ready
         run: sleep 15
